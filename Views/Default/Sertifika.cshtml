@@ -1,0 +1,18 @@
+﻿@using MVC_CV.Models.Entity
+@model IEnumerable<TBLSERTIFIKALARIM>
+
+
+<div class="resume-section-content">
+    <h2 class="mb-5">Sertifika ve Ödüller</h2>
+    <ul class="fa-ul mb-0">
+        @foreach (TBLSERTIFIKALARIM item in Model)
+        {
+            <li>
+                <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                @item.ACIKLAMA
+            </li>
+        }
+
+
+    </ul>
+</div>

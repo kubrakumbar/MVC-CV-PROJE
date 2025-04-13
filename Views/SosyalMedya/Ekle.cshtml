@@ -1,0 +1,35 @@
+﻿@using MVC_CV.Models.Entity
+@model TBLSOSYALMEDYA
+
+<!--modal ile sosyal medya ekle-->
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Sosyal Medya Ekleme Penceresi</h2>
+            </div>
+
+            @using (Html.BeginForm("Ekle", "SosyalMedya", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+        <div class="modal-body">
+            @Html.LabelFor(model => model.AD, "Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.AD, new { @class = "form-control" })
+
+            @Html.LabelFor(model => model.LINK, "Link", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.LINK, new { @class = "form-control" })
+
+            @Html.LabelFor(model => model.ICON, "Icon", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.TextBoxFor(model => model.ICON, new { @class = "form-control" })
+
+       
+        </div>
+
+
+
+                <button type="submit" class="btn btn-primary"> Ekle</button>
+            }
+        </div>
+    </div>
+</div>

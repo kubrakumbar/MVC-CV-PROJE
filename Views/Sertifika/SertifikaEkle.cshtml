@@ -1,0 +1,31 @@
+﻿@using MVC_CV.Models.Entity
+@model TBLSERTIFIKALARIM
+@{
+    ViewBag.Title = "SertifikaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sertifika Ekle</h2>
+
+@using (Html.BeginForm("SertifikaEkle", "Sertifika", FormMethod.Post, new { id = "deneyimEkleme" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ACIKLAMA, "Açıklama", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ACIKLAMA, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TARIH, "Tarih", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.TARIH, new { @class = "form-control" })
+
+        </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Sertifika Ekle</button>
+}

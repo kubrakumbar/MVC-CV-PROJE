@@ -1,0 +1,29 @@
+﻿
+@model MVC_CV.Models.Entity.TBLYETENEKLERIM
+@{
+    ViewBag.Title = "YetenekGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yetenek Guncelle</h2>
+
+@using (Html.BeginForm("YetenekGuncelle", "Yetenek", FormMethod.Post, new { id = "yetenekEkleme" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(model => model.YETENEK, "Yetenek", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.YETENEK, new { @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ORAN, "Oran", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ORAN, new { @class = "form-control" })
+
+        </div>
+    </div>
+     
+    <button type="submit" class="btn btn-primary">Yetenek Güncelle</button>
+}

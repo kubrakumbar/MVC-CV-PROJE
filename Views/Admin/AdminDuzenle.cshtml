@@ -1,0 +1,37 @@
+﻿@using MVC_CV.Models.Entity
+@model TBLADMIN
+@{
+    ViewBag.Title = "AdminDuzenle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Admin Duzenle</h2>
+
+@using (Html.BeginForm("AdminDuzenle", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(model => model.ID, "ID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ID, new { @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.KULLANICIADI, "Kullanıcı adı", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.KULLANICIADI, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SIFRE, "Şifre", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.SIFRE, new { @class = "form-control" })
+
+        </div>
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Kullanıcı Güncelle</button>
+}

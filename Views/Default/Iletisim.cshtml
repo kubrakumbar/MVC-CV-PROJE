@@ -1,0 +1,53 @@
+﻿@using MVC_CV.Models.Entity
+@model TBLILETISIM
+
+
+<div class="resume-section-content">
+    <h2 class="mb-5">İletişim</h2>
+    @using (Html.BeginForm("Iletisim", "Default", FormMethod.Post, new { id = "iletisimFormu" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ADSOYAD, "Ad Soyad", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.ADSOYAD, new { @class = "form-control" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MAIL, "Mail", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.MAIL, new { @class = "form-control" })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KONU, "Konu", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.KONU, new { @class = "form-control" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MESAJ, "Mesajınız", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.MESAJ, new { @class = "form-control" })
+
+            </div>
+        </div>
+
+
+        
+        <button type="submit" class="btn btn-primary">Gönder</button>
+    }
+
+</div>
+
+
+
+ 

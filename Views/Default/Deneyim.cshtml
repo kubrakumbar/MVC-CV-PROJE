@@ -1,0 +1,19 @@
+﻿@using MVC_CV.Models.Entity
+@model IEnumerable<TBLDENEYIMLER>
+
+
+<div class="resume-section-content">
+    <h2 class="mb-5">Deneyimlerim</h2>
+    @foreach (TBLDENEYIMLER item in Model)
+    {
+        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+            <div class="flex-grow-1">
+                <h3 class="mb-0">@item.BASLIK</h3>
+                <div class="subheading mb-3">@item.ALTBASLIK</div>
+                <p>@item.ACIKLAMA</p>
+            </div>
+            <div class="flex-shrink-0"><span class="text-primary">@item.TARIH</span></div>
+        </div>
+    }
+
+</div>

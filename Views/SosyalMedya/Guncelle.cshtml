@@ -1,0 +1,36 @@
+﻿@using MVC_CV.Models.Entity
+@model TBLSOSYALMEDYA
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Güncelle</h2>
+@using (Html.BeginForm("Guncelle", "SosyalMedya", FormMethod.Post, new { id = "yetenekEkleme" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(model => model.AD, "Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.AD, new { @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.LINK, "Link", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.LINK, new { @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ICON, "Icon", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ICON, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+}
+

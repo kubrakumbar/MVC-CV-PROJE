@@ -1,0 +1,71 @@
+﻿@using MVC_CV.Models.Entity
+@model List<TBLSOSYALMEDYA>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+} 
+
+<!DOCTYPE html>
+<html>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Sosyal Medya</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <!--modal ile butonu meçle-->
+                                <button class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Sosyal Medya Ekle</button><br /> <br />
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>Sosyal Medya  </th>
+                                            <th>Durum</th>
+                                            <th> Güncelle   </th>
+                                            <th>   Sil </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (TBLSOSYALMEDYA item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.ID</td>
+                                                <td>@item.AD</td>
+                                                @if (item.DURUM == false)
+                                                {
+                                                    <td>Pasif</td>
+                                                }
+                                                else
+                                                {
+                                                    <td>Aktif</td>
+                                                }
+
+                                                <td><a href="/SosyalMedya/Guncelle/@item.ID" class="btn btn-primary  btn-sm"> Düzenle</a></td>
+                                                <td><a href="/SosyalMedya/Sil/@item.ID" class="btn btn-danger btn-sm"> Sil</a></td>
+                                            </tr>
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+
+        @Html.Action("Ekle") <!--post işlemi oldugu için action kullanılır. (partial yerine)-->
+    </div>
+</body>
+</html>

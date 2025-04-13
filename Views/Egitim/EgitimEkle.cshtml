@@ -1,0 +1,54 @@
+﻿@model MVC_CV.Models.Entity.TBLEGITIMLERIM
+@{
+    ViewBag.Title = "EgitimEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Egitim Ekle</h2>
+
+
+@using (Html.BeginForm("EgitimEkle", "Egitim", FormMethod.Post, new { id = "egitimEkleme" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BASLIK, "Başlık", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.BASLIK, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x=>x.BASLIK,"",new {@style="color:red" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ALTBASLIK, "Alt Başlık", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ALTBASLIK, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ALTBASLIK2, "Alt Başlık 2", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.ALTBASLIK2, new { @class = "form-control" })
+
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.TARIH, "Tarih", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.TARIH, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.GNO, "GNO", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.GNO, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.GNO, "", new { @style = "color:red" })
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Eğitim Ekle</button>
+}

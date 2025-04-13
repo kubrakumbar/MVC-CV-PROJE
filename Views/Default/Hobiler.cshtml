@@ -1,0 +1,11 @@
+﻿@using MVC_CV.Models.Entity
+@model IEnumerable<TBLHOBILERIM>
+
+<div class="resume-section-content">
+    <h2 class="mb-5">Hobiler</h2>
+    @foreach (TBLHOBILERIM item in Model)
+    {
+        <p>@item.ACIKLAMA1</p>
+        <p class="mb-0">@item.ACIKLAMA2</p>
+    }
+</div>

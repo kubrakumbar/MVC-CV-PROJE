@@ -1,0 +1,35 @@
+﻿@using MVC_CV.Models.Entity
+@model List<TBLHOBILERIM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>hobi düzenle</h2>
+
+@using (Html.BeginForm("Index", "Hobi", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @*@foreach (var item in Model)
+        {*@
+    @* for kullanmamızın sebebi, foreach değerleri değiştirmemize izin vermiyor. for veri değişikliğini sunucuya gönderebiliyor. *@
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="form-group mb-5">
+            <div class="col-md-10">
+                @Html.HiddenFor(model => Model[i].ID) @*burada ıd yolluyoruz çünkü güncelleme işlemi için gerekli*@
+                @Html.LabelFor(model => Model[i].ACIKLAMA1, "Açıklama 1", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.TextAreaFor(model => Model[i].ACIKLAMA1, new { @class = "form-control", @rows = "5"  })
+            </div>
+            <div class="col-md-10 ">
+                @Html.LabelFor(model => Model[i].ACIKLAMA2, "Açıklama 2", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.TextAreaFor(model => Model[i].ACIKLAMA2, new { @class = "form-control", @rows = "5" })
+            </div>
+        </div>
+    }
+    @*}*@
+
+    <button type="submit" class="btn btn-primary">Deneyim Güncelle</button>
+}
+

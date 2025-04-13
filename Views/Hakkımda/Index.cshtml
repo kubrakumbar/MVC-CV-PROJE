@@ -1,0 +1,61 @@
+﻿@using MVC_CV.Models.Entity
+@model List<TBLHAKKIMDA>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hakkımda </h2>
+
+@using (Html.BeginForm("Index", "Hakkımda", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @*@foreach (var item in Model)
+        {*@
+    @* for kullanmamızın sebebi, foreach değerleri değiştirmemize izin vermiyor. for veri değişikliğini sunucuya gönderebiliyor. *@
+    for (int i = 0; i < Model.Count; i++)
+    {
+<div class="form-group mb-5">
+    <div class="col-md-10">
+        @Html.HiddenFor(model => Model[i].ID) @*burada ıd yolluyoruz çünkü güncelleme işlemi için gerekli*@
+        @Html.LabelFor(model => Model[i].AD, "Ad", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(model => Model[i].AD, new { @class = "form-control", @rows = "5" })
+    </div>
+    <div class="col-md-10 ">
+        @Html.LabelFor(model => Model[i].SOYAD, "Soyad", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(model => Model[i].SOYAD, new { @class = "form-control" })
+    </div>
+
+    <div class="col-md-10 ">
+        @Html.LabelFor(model => Model[i].ADRES, "Adres", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(model => Model[i].ADRES, new { @class = "form-control" })
+    </div>
+    <div class="col-md-10 ">
+        @Html.LabelFor(model => Model[i].TELEFON, "Telefon", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(model => Model[i].TELEFON, new { @class = "form-control" })
+    </div>
+    <div class="col-md-10 ">
+        @Html.LabelFor(model => Model[i].MAIL, "Mail", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(model => Model[i].MAIL, new { @class = "form-control" })
+    </div>
+    <div class="col-md-10 ">
+        @Html.LabelFor(model => Model[i].ACIKLAMA, "Açıklama", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(model => Model[i].ACIKLAMA, new { @class = "form-control" })
+    </div>
+    <div class="col-md-10 ">
+        @Html.LabelFor(model => Model[i].RESIM, "Resim", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(model => Model[i].RESIM, new { @class = "form-control"})
+    </div>
+</div>
+    }
+    @*}*@
+
+    <button type="submit" class="btn btn-primary"> Güncelle</button>
+}
+
+
+
+
+
+
